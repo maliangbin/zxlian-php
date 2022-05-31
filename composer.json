@@ -1,0 +1,21 @@
+{
+    "name": "maliangbin/zxlian-php",
+    "description": "The SDK for zxlian php sdk.",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Maliangbin\\ZxlianPhp\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "马良彬",
+            "email": "maliangbin@hoge.cn"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "guzzlehttp/guzzle": "^7.4"
+    }
+}
