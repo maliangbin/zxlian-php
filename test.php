@@ -14,6 +14,7 @@ $data = [
 //var_dump($client->userRegister($data));
 //var_dump($client->createMnemonic());
 $key = $client->deriveKeyPair();
+var_dump($key);
 //var_dump($client->deriveKeyPair($key['priKey']));
 //var_dump($client->pubKey2Address($key['pubKey']));
 //var_dump($client->priKey2Address($key['priKey']));

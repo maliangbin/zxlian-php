@@ -8,9 +8,16 @@ class WalletService
 {
     protected $api = 'http://127.0.0.1:30505/';
 
+    public $guzzleClient;
+
+    public function __construct()
+    {
+        $this->guzzleClient = function_exists('Guzzle_Client') ? Guzzle_Client() : (new Client());
+    }
+
     public function generateApiSign($secretId, $secretKey)
     {
-        $response = (new Client())->request('POST', $this->api . 'generateApiSign', [
+        $response = $this->guzzleClient->request('POST', $this->api . 'generateApiSign', [
             'body' => json_encode([
                 'secretId' => $secretId,
                 'secretKey' => $secretKey,
@@ -32,7 +39,7 @@ class WalletService
 
     public function createMnemonic()
     {
-        $response = (new Client())->request('POST', $this->api . 'createMnemonic');
+        $response = $this->guzzleClient->request('POST', $this->api . 'createMnemonic');
 
         $response = json_decode($response->getBody()->getContents(), true);
 
@@ -46,7 +53,7 @@ class WalletService
 
     public function deriveKeyPair($mnemonic, $index = 0)
     {
-        $response = (new Client())->request('POST', $this->api . 'deriveKeyPair', [
+        $response = $this->guzzleClient->request('POST', $this->api . 'deriveKeyPair', [
             'body' => json_encode([
                 'mnemonic' => $mnemonic,
                 'index' => $index
@@ -68,7 +75,7 @@ class WalletService
 
     public function priKey2PubKey($priKey)
     {
-        $response = (new Client())->request('POST', $this->api . 'priKey2PubKey', [
+        $response = $this->guzzleClient->request('POST', $this->api . 'priKey2PubKey', [
             'body' => json_encode([
                 'pri' => $priKey
             ]),
@@ -89,7 +96,7 @@ class WalletService
 
     public function priKey2Address($priKey)
     {
-        $response = (new Client())->request('POST', $this->api . 'priKey2Address', [
+        $response = $this->guzzleClient->request('POST', $this->api . 'priKey2Address', [
             'body' => json_encode([
                 'priKey' => $priKey
             ]),
@@ -110,7 +117,7 @@ class WalletService
 
     public function signByPriKey($priKey, $data)
     {
-        $response = (new Client())->request('POST', $this->api . 'signByPriKey', [
+        $response = $this->guzzleClient->request('POST', $this->api . 'signByPriKey', [
             'body' => json_encode([
                 'priKey' => $priKey,
                 'data' => $data
@@ -132,7 +139,7 @@ class WalletService
 
     public function verifyByPubKey($pubKey, $signedData, $data)
     {
-        $response = (new Client())->request('POST', $this->api . 'verifyByPubKey', [
+        $response = $this->guzzleClient->request('POST', $this->api . 'verifyByPubKey', [
             'body' => json_encode([
                 'pubKey' => $pubKey,
                 'signedData' => $signedData,
@@ -154,7 +161,7 @@ class WalletService
 
     public function pubKey2Address($pubKey)
     {
-        $response = (new Client())->request('POST', $this->api . 'pubKey2Address', [
+        $response = $this->guzzleClient->request('POST', $this->api . 'pubKey2Address', [
             'body' => json_encode([
                 'pubKey' => $pubKey
             ]),
@@ -175,7 +182,7 @@ class WalletService
 
     public function sm3Hash($data, $is_base64 = true)
     {
-        $response = (new Client())->request('POST', $this->api . 'sm3Hash', [
+        $response = $this->guzzleClient->request('POST', $this->api . 'sm3Hash', [
             'body' => json_encode([
                 'data' => $is_base64 ? base64_encode($data) : $data
             ]),
@@ -196,7 +203,7 @@ class WalletService
 
     public function uploadToCos($cosPath, $tempSecretId, $tempSecretKey, $sessionToken, $filePath)
     {
-        $response = (new Client())->request('POST', $this->api . 'uploadToCos', [
+        $response = $this->guzzleClient->request('POST', $this->api . 'uploadToCos', [
             'body' => json_encode([
                 'cosPath' => $cosPath,
                 'tempSecretId' => $tempSecretId,
