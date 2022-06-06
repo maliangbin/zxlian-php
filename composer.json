@@ -6,7 +6,10 @@
     "autoload": {
         "psr-4": {
             "Maliangbin\\ZxlianPhp\\": "src/"
-        }
+        },
+        "files": [
+            "src/Functions.php"
+        ]
     },
     "authors": [
         {

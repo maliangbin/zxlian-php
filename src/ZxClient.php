@@ -21,8 +21,7 @@ class ZxClient
         }
 
         $api = $this->config['user_register'];
-
-        $response = (new Client())->request('POST', $api, [
+        $response = RequestClient()->request('POST', $api, [
             'body' => json_encode($params),
             'headers' => $this->getRequestHeaders()
         ]);
@@ -39,7 +38,7 @@ class ZxClient
 
         $api = $this->config['user_bind'];
 
-        $response = (new Client())->request('POST', $api, [
+        $response = RequestClient()->request('POST', $api, [
             'body' => json_encode($params),
             'headers' => $this->getRequestHeaders()
         ]);
@@ -56,7 +55,7 @@ class ZxClient
 
         $api = $this->config['user_bind_query'];
 
-        $response = (new Client())->request('GET', $api, [
+        $response = RequestClient()->request('GET', $api, [
             'query' => [
                 'addressList' => $address_list
             ],
@@ -75,7 +74,7 @@ class ZxClient
 
         $api = $this->config['series_claim'];
 
-        $response = (new Client())->request('POST', $api, [
+        $response = RequestClient()->request('POST', $api, [
             'body' => json_encode($params),
             'headers' => $this->getRequestHeaders()
         ]);
@@ -92,7 +91,7 @@ class ZxClient
 
         $api = $this->config['series_claim_result'];
 
-        $response = (new Client())->request('GET', $api, [
+        $response = RequestClient()->request('GET', $api, [
             'query' => $params,
             'headers' => $this->getRequestHeaders()
         ]);
@@ -109,7 +108,7 @@ class ZxClient
 
         $api = $this->config['nft_publish'];
 
-        $response = (new Client())->request('POST', $api, [
+        $response = RequestClient()->request('POST', $api, [
             'body' => json_encode($params),
             'headers' => $this->getRequestHeaders()
         ]);
@@ -126,7 +125,7 @@ class ZxClient
 
         $api = $this->config['nft_publish_result'];
 
-        $response = (new Client())->request('GET', $api, [
+        $response = RequestClient()->request('GET', $api, [
             'query' => $params,
             'headers' => $this->getRequestHeaders()
         ]);
@@ -143,7 +142,7 @@ class ZxClient
 
         $api = $this->config['nft_buy'];
 
-        $response = (new Client())->request('POST', $api, [
+        $response = RequestClient()->request('POST', $api, [
             'body' => json_encode($params),
             'headers' => $this->getRequestHeaders()
         ]);
@@ -161,7 +160,7 @@ class ZxClient
 
         $api = $this->config['nft_buy_result'];
 
-        $response = (new Client())->request('GET', $api, [
+        $response = RequestClient()->request('GET', $api, [
             'query' => $params,
             'headers' => $this->getRequestHeaders()
         ]);
@@ -178,7 +177,7 @@ class ZxClient
 
         $api = $this->config['nft_status_update'];
 
-        $response = (new Client())->request('POST', $api, [
+        $response = RequestClient()->request('POST', $api, [
             'body' => json_encode($params),
             'headers' => $this->getRequestHeaders()
         ]);
@@ -195,7 +194,7 @@ class ZxClient
 
         $api = $this->config['nft_status_update_result'];
 
-        $response = (new Client())->request('GET', $api, [
+        $response = RequestClient()->request('GET', $api, [
             'query' => $params,
             'headers' => $this->getRequestHeaders()
         ]);
@@ -212,7 +211,7 @@ class ZxClient
 
         $api = $this->config['nft_price_update'];
 
-        $response = (new Client())->request('POST', $api, [
+        $response = RequestClient()->request('POST', $api, [
             'body' => json_encode($params),
             'headers' => $this->getRequestHeaders()
         ]);
@@ -229,7 +228,7 @@ class ZxClient
 
         $api = $this->config['nft_price_update_result'];
 
-        $response = (new Client())->request('GET', $api, [
+        $response = RequestClient()->request('GET', $api, [
             'query' => $params,
             'headers' => $this->getRequestHeaders()
         ]);
@@ -246,7 +245,7 @@ class ZxClient
 
         $api = $this->config['nft_info'];
 
-        $response = (new Client())->request('GET', $api, [
+        $response = RequestClient()->request('GET', $api, [
             'query' => $params,
             'headers' => $this->getRequestHeaders()
         ]);
@@ -263,7 +262,7 @@ class ZxClient
 
         $api = $this->config['nft_address_list'];
 
-        $response = (new Client())->request('GET', $api, [
+        $response = RequestClient()->request('GET', $api, [
             'query' => $params,
             'headers' => $this->getRequestHeaders()
         ]);
@@ -280,7 +279,7 @@ class ZxClient
 
         $api = $this->config['nft_address_without_series_list'];
 
-        $response = (new Client())->request('GET', $api, [
+        $response = RequestClient()->request('GET', $api, [
             'query' => $params,
             'headers' => $this->getRequestHeaders()
         ]);
@@ -297,7 +296,7 @@ class ZxClient
 
         $api = $this->config['nft_trade_list'];
 
-        $response = (new Client())->request('GET', $api, [
+        $response = RequestClient()->request('GET', $api, [
             'query' => $params,
             'headers' => $this->getRequestHeaders()
         ]);
@@ -314,7 +313,7 @@ class ZxClient
 
         $api = $this->config['nft_trade_in_list'];
 
-        $response = (new Client())->request('GET', $api, [
+        $response = RequestClient()->request('GET', $api, [
             'query' => $params,
             'headers' => $this->getRequestHeaders()
         ]);
@@ -331,7 +330,7 @@ class ZxClient
 
         $api = $this->config['nft_trade_out_list'];
 
-        $response = (new Client())->request('GET', $api, [
+        $response = RequestClient()->request('GET', $api, [
             'query' => $params,
             'headers' => $this->getRequestHeaders()
         ]);
@@ -348,7 +347,7 @@ class ZxClient
 
         $api = $this->config['nft_trade_all_list'];
 
-        $response = (new Client())->request('GET', $api, [
+        $response = RequestClient()->request('GET', $api, [
             'query' => $params,
             'headers' => $this->getRequestHeaders()
         ]);
@@ -365,7 +364,7 @@ class ZxClient
 
         $api = $this->config['nft_series'];
 
-        $response = (new Client())->request('GET', $api, [
+        $response = RequestClient()->request('GET', $api, [
             'query' => $params,
             'headers' => $this->getRequestHeaders()
         ]);
@@ -382,7 +381,7 @@ class ZxClient
 
         $api = $this->config['nft_series_list'];
 
-        $response = (new Client())->request('GET', $api, [
+        $response = RequestClient()->request('GET', $api, [
             'query' => $params,
             'headers' => $this->getRequestHeaders()
         ]);
@@ -399,7 +398,7 @@ class ZxClient
 
         $api = $this->config['user_upload_secret'];
 
-        $response = (new Client())->request('POST', $api, [
+        $response = RequestClient()->request('POST', $api, [
             'body' => json_encode($params),
             'headers' => $this->getRequestHeaders()
         ]);
@@ -416,7 +415,7 @@ class ZxClient
 
         $api = $this->config['user_upload_url'];
 
-        $response = (new Client())->request('GET', $api, [
+        $response = RequestClient()->request('GET', $api, [
             'query' => $params,
             'headers' => $this->getRequestHeaders()
         ]);
