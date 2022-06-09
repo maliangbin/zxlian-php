@@ -55,10 +55,14 @@ class ZxClient
 
         $api = $this->config['user_bind_query'];
 
+        $address_str = '';
+        foreach ($address_list as $item) {
+            $address_str = 'addressList='.$item .'&';
+        }
+
+        $api = $api .'?' . ltrim($address_str, '&');
+
         $response = RequestClient()->request('GET', $api, [
-            'query' => [
-                'addressList' => $address_list
-            ],
             'headers' => $this->getRequestHeaders()
         ]);
 
